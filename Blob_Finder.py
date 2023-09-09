@@ -1,4 +1,4 @@
-ipython
+>>> # Use ipython if needed
 >>> # Package imports
 ... import cv2 
 ... import numpy as np
