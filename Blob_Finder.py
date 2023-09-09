@@ -67,7 +67,7 @@ Type "help", "copyright", "credits" or "license()" for more information.
 
 # Read one image
 
-imgloc = '/Users/Hazel/Documents/BLOB/Clump_Images/P1_S1_D.png'
+imgloc = '/path/image.png'
 (sz, num) = Process_Image(imgloc)
 print(sz, num)
 
@@ -77,7 +77,7 @@ print(sz, num)
 # Print the size and number for each file
 
 
-file_path = '/Users/Hazel/Documents/BLOB/Clump_Images/'
+file_path = '/path/'
 files = os.listdir(file_path)
 files = [f for f in files if f != '.DS_Store']
 sizes = []
@@ -96,7 +96,7 @@ plt.show()
         
 # Exercise: print a data frame
 
-file_path = '/Users/Hazel/Documents/BLOB/Clump_Images/'
+file_path = '/path/'
 files = os.listdir(file_path)
 files = [f for f in files if f != '.DS_Store']
 sizes = []
@@ -120,14 +120,14 @@ print(BlobDataFrame.T)
 
 #Exporting dataframe as csv 
 
-BlobDataFrame.T.to_csv('/Users/Hazel/Documents/BLOB/Blob.csv')
+BlobDataFrame.T.to_csv('/path/Blob.csv')
 
 #This exports fine. For now, added external ELISA and other data to a copy of this CSV.
 
 
 #To Graph: number of large clumps performance
 
-df = pd.read_csv('/Users/Hazel/Documents/BLOB/BlobELISA.csv')
+df = pd.read_csv('/path/BlobELISA.csv')
 
 fig = px.scatter(df, x = 'ELISA', y = 'Blob', color='Sample')
 
@@ -137,43 +137,43 @@ fig.update_layout(
    yaxis_title="Number of large clumps")
 
 fig.show()
-fig.write_image(fig.write_image('/Users/Hazel/Documents/BLOB/Graphs/BlobNumber.png'))
+fig.write_image(fig.write_image('/path/BlobNumber.png'))
 
 
 #Show correlations with MAT
-df = pd.read_csv('/Users/Hazel/Documents/BLOB/BlobELISA.csv')
+df = pd.read_csv('/path/BlobELISA.csv')
 
 fig = px.scatter(df, x = 'LOGELISA', y = 'MAT', color='Sample')
 
 fig.update_layout(
-   title="Agglutination of human serum",
-   xaxis_title="Log10 IgG Concentration",
-   yaxis_title="Agglutination Score")
+   title="name",
+   xaxis_title="Log10 Concentration",
+   yaxis_title="Score")
 
 fig.show()
 
 #Show original Mat over ELISA
 
-df = pd.read_csv('/Users/Hazel/Documents/BLOB/BlobELISA.csv')
+df = pd.read_csv('/path/BlobELISA.csv')
 
 fig = px.scatter(df, x = 'LOGELISA', y = 'MAT', color="Sample")
 
 fig.update_layout(
    title="Original Correlation",
-   xaxis_title="Log10 IgG Concentration",
-   yaxis_title="Agglutination Score")
+   xaxis_title="Log10 Concentration",
+   yaxis_title="Score")
 
 fig.show()
 
 #Plot Standard Curve
-df = pd.read_csv('/Users/Hazel/Documents/BLOB/STDMM.csv')
+df = pd.read_csv('/path/StandardCurve.csv')
 
-fig = px.scatter(df, x = 'id', y = 'Average', error_y="STD")
+fig = px.scatter(df, x = 'id', y = 'Average', error_y="Error")
 
 fig.update_layout(
    #title="Agglutination of S1 IgG Versus Antibody Concentration",
-   xaxis_title="IgG Concentration (µg/ml)",
-   yaxis_title="Agglutination Score",
+   xaxis_title="Concentration (µg/ml)",
+   yaxis_title="Score",
    plot_bgcolor="white")
 
 fig.update_traces(marker_color='magenta')
@@ -193,17 +193,17 @@ fig.show()
 
 #Export graphs as PNGs
 
-fig.write_image(fig.write_image('/Users/Hazel/Documents/BLOB/Graphs/STD.png'))
+fig.write_image(fig.write_image('/path/StandardCurve.png'))
 
 #make bar plot for specificity test
-df = pd.read_csv('/Users/Hazel/Documents/BLOB/SPC.csv')
+df = pd.read_csv('/path/SPC.csv')
 
-fig = px.bar(df, x = 'id', y = 'Average', error_y="STD")
+fig = px.bar(df, x = 'id', y = 'Average', error_y="error")
 
 fig.update_layout(
-   title="S1-Coated Beads are Specific for SARS-CoV-2 IgG ",
+   title="Name ",
    xaxis_title="Sample",
-   yaxis_title="Agglutination Score",
+   yaxis_title="Score",
    plot_bgcolor="white")
 fig.update_xaxes(showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(showline=True, linewidth=2, linecolor='black')
@@ -211,20 +211,20 @@ fig.update_traces(marker_color='grey', width=0.5)
 
 fig.show()
 
-fig.write_image(fig.write_image('/Users/Hazel/Documents/BLOB/Graphs/SPC.png'))
+fig.write_image(fig.write_image('/path/SPC.png'))
 
 #Pretty graphs for publication
 
 #Show original Mat over ELISA
 
-df = pd.read_csv('/Users/Hazel/Documents/BLOB/BlobELISA.csv')
+df = pd.read_csv('/path/BlobELISA.csv')
 
 fig = px.scatter(df, x = 'LOGELISA', y = 'MAT', color="Category")
 
 fig.update_layout(
    #title="Agglutination of S1-IgG in Human Plasma ",
-   xaxis_title="Log10 IgG Concentration (µg/ml)",
-   yaxis_title="Agglutination Score",
+   xaxis_title="Log10 Concentration (µg/ml)",
+   yaxis_title="Score",
    plot_bgcolor="white",
    legend=dict(
         bordercolor="Black",
@@ -242,5 +242,5 @@ fig.update_layout(
 
 fig.show()
 
-fig.write_image(fig.write_image('/Users/Hazel/Documents/BLOB/Graphs/ALLPLASMA.png'))
+fig.write_image(fig.write_image('/path/AllSamples.png'))
 
