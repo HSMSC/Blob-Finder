@@ -1,4 +1,4 @@
-# Note: All paths have been deleted and left as '/path/', and some title names have been deleted as well, due to sensitivity of the project.
+# Note: All paths have been deleted and left as '/path/', and some titles and labels have been edited as well, due to sensitivity of the project.
 #Use ipython if needed 
 # Package imports
 import cv2 
@@ -130,7 +130,7 @@ fig = px.scatter(df, x = 'ELISA', y = 'Blob', color='Sample')
 
 fig.update_layout(
    title="Correlation to large clumps",
-   xaxis_title="S1 IgG (µg,ml)",
+   xaxis_title="name (µg,ml)",
    yaxis_title="Number of large clumps")
 
 fig.show()
@@ -153,7 +153,7 @@ fig.show()
 
 df = pd.read_csv('/path/BlobELISA.csv')
 
-fig = px.scatter(df, x = 'LOGELISA', y = 'MAT', color="Sample")
+fig = px.scatter(df, x = 'LOGELISA', y = 'Score', color="Sample")
 
 fig.update_layout(
    title="Original Correlation",
@@ -168,7 +168,7 @@ df = pd.read_csv('/path/StandardCurve.csv')
 fig = px.scatter(df, x = 'id', y = 'Average', error_y="Error")
 
 fig.update_layout(
-   #title="Agglutination of S1 IgG Versus Antibody Concentration",
+   #title="Title Name",
    xaxis_title="Concentration (µg/ml)",
    yaxis_title="Score",
    plot_bgcolor="white")
@@ -212,11 +212,11 @@ fig.write_image(fig.write_image('/path/SPC.png'))
 
 #Pretty graphs for publication
 
-#Show original Mat over ELISA
+#Show original Score over ELISA
 
 df = pd.read_csv('/path/BlobELISA.csv')
 
-fig = px.scatter(df, x = 'LOGELISA', y = 'MAT', color="Category")
+fig = px.scatter(df, x = 'LOGELISA', y = 'Score', color="Category")
 
 fig.update_layout(
    #title="Title Name ",
