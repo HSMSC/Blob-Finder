@@ -1,4 +1,5 @@
- # Use ipython if needed 
+# Note: All paths have been deleted and left as '/path/', and some title names have been deleted as well, due to sensitivity of the project.
+#Use ipython if needed 
 # Package imports
 import cv2 
 import numpy as np
