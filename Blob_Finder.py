@@ -181,7 +181,7 @@ fig.update_layout(xaxis=dict(showgrid=True),
 fig.update_xaxes(showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(showline=True, linewidth=2, linecolor='black')
 fig.update_traces(marker={'size': 10}) 
-#fig.update_layout(title="<b>Agglutination of S1 IgG Versus Antibody Concentration</b>")
+#fig.update_layout(title="Title Name")
 fig.update_layout(
     font=dict(
         #family="Courier New, monospace",
@@ -221,7 +221,7 @@ df = pd.read_csv('/path/BlobELISA.csv')
 fig = px.scatter(df, x = 'LOGELISA', y = 'MAT', color="Category")
 
 fig.update_layout(
-   #title="Agglutination of S1-IgG in Human Plasma ",
+   #title="Title Name ",
    xaxis_title="Log10 Concentration (µg/ml)",
    yaxis_title="Score",
    plot_bgcolor="white",
@@ -231,7 +231,7 @@ fig.update_layout(
 fig.update_xaxes(showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(showline=True, linewidth=2, linecolor='black')
 fig.update_traces(marker={'size': 10}) 
-#fig.update_layout(title="<b>Agglutination of S1 IgG Versus Antibody Concentration</b>")
+#fig.update_layout(title="Title name")
 fig.update_layout(
     font=dict(
         #family="Courier New, monospace",
