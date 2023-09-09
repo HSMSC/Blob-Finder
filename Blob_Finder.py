@@ -39,10 +39,10 @@ def Process_Image(imgfile):
 
     # Create a detector with the parameters
     ver = (cv2.__version__).split('.')
-            if int(ver[0]) < 3 :
-    detector = cv2.SimpleBlobDetector(params)
-            else : 
-    detector = cv2.SimpleBlobDetector_create(params)
+    if int(ver[0]) < 3 :
+        detector = cv2.SimpleBlobDetector(params)
+    else : 
+        detector = cv2.SimpleBlobDetector_create(params)
 
     # Detect blobs.
     keypoints = detector.detect(im)
